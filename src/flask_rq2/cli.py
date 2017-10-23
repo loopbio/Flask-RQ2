@@ -138,7 +138,7 @@ def worker(rq, ctx, burst, name, path, results_ttl, worker_ttl,
         verbose=verbose,
         quiet=quiet,
         sentry_dsn=sentry_dsn,
-        exception_handler=exception_handler,
+        exception_handler=exception_handler or rq._exception_handlers,
         pid=pid,
         queues=queues or rq.queues,
     )
